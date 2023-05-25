@@ -1,7 +1,5 @@
 package put_requests;
 
-package put_requests;
-
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
