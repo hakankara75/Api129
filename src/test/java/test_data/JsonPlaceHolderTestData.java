@@ -5,13 +5,20 @@ import java.util.Map;
 
 public class JsonPlaceHolderTestData {
 
-    public Map<String, Object> expectedDataMap(int userId, String title, boolean completed) {
+    public Map<String, Object> expectedDataMap(Integer userId, String title, Boolean completed) {
 
       Map<String, Object> expectedData = new HashMap<>(); //serialization java to json
+        if (userId != null){
         expectedData.put("userId", userId );
-        expectedData.put("title", title);
-        expectedData.put("completed", completed);
-        System.out.println("expectedData"+ expectedData);
+        }
+        if(title != null){
+            expectedData.put("title", title);
+        }
+        if(completed != null){
+            expectedData.put("completed", completed);
+        }
+
         return expectedData;
+
 }
  }
