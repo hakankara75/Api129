@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class Get10 extends GoRestBaseUrl {
+public class Get10_Groovy extends GoRestBaseUrl {
      /*
    Given
        https://gorest.co.in/public/v1/users
@@ -52,7 +52,7 @@ public class Get10 extends GoRestBaseUrl {
                         "meta.pagination.links.current", equalTo("https://gorest.co.in/public/v1/users?page=1"),
                         "data", hasSize(10),
                         "data.status", hasItem("active"),//status'u list olarak verir. hasItem(contains) ile de active ogesinin  olup olmadigina bakar
-                        "data.name", hasItems("Shashikala Butt", "Trilochana Chattopadhyay", "Chidambaram Gill"));
+                        "data.name", hasItems("Baala Chopra", "Shubha Varma", "Kanti Naik")); //hasItems coklu veri kontrolu icin
 
 
         //kadin ve erkek sayilarini karsilastiralim
@@ -69,5 +69,16 @@ public class Get10 extends GoRestBaseUrl {
 
         assertTrue(kadinSayisi <=(genderList.size()-kadinSayisi));
 
-    }
+
+  //2.yol
+        //Groovy kullanarak gender değeri "female" olan elemenları filtreliyoruz. Kadın sayısını buluyoruz.
+    int kadinSayisiGoovy= jsonPath.getList("data.findAll{it.gender=='female'}").size();
+    int erkekSayisiGoovy= jsonPath.getList("data.findAll{it.gender=='male'}").size();
+
+        //Groovy kullanarak gender değeri "male" olan elemenları filtreliyoruz.
+    assertTrue(kadinSayisiGoovy<= genderList.size()-kadinSayisiGoovy);
+    assertTrue(kadinSayisiGoovy<= erkekSayisiGoovy);
+
+
+}
 }

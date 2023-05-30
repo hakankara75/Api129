@@ -16,14 +16,15 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <!--API sorgusu için gerekli 1. dependency assertion icin rest-assured -->
+         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>5.3.0</version>
             <scope>test</scope>
         </dependency>
-
+        <!--API sorgusu için gerekli 2. dependency hard sorgu icin junit -->
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -31,6 +32,8 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+        <!--API sorgusu için gerekli 3. dependency json-->
+
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
@@ -40,7 +43,10 @@
             <scope>test</scope>
         </dependency>
 
-
+<!--
+Bu kütüphane, JSON formatında kodlanmış verileri Java nesnelerine dönüştürmek ve Java nesnelerini JSON verilerine dönüştürmek için kullanılabilir.
+de-serialization
+-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
