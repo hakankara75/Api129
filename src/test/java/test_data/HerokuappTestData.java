@@ -12,14 +12,25 @@ public class HerokuappTestData {
         return bookingdatesMap;
     }
 
-    public Map<String, Object> expectedDataMethod(String firstname, String lastname, int totalprice, boolean depositpaid,Map<String, String> bookingdatesMap, String additionalneeds ){
+    public Map<String, Object> expectedDataMethod(String firstname, String lastname, Integer totalprice, Boolean depositpaid,Map<String, String> bookingdatesMap, String additionalneeds ){
         Map<String, Object> expectedData= new HashMap<>();
-        expectedData.put("firstname", firstname);
-        expectedData.put("lastname", lastname);
-        expectedData.put("totalprice", totalprice);
-        expectedData.put("depositpaid", depositpaid);
-        expectedData.put("bookingdates", bookingdatesMap);
-        if(   additionalneeds!=null     ){
+        if (firstname!=null){
+            expectedData.put("firstname", firstname);
+        }
+        if (lastname!=null){
+            expectedData.put("lastname", lastname);
+        }
+        if (totalprice!=null){
+            expectedData.put("totalprice", totalprice);
+        }
+        if (depositpaid!=null){
+            expectedData.put("depositpaid", depositpaid);
+        }
+        if (bookingdatesMap!=null){
+            expectedData.put("bookingdates", bookingdatesMap);
+        }
+
+        if(additionalneeds!=null){
             expectedData.put("additionalneeds", additionalneeds);
         }
 
