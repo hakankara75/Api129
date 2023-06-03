@@ -1,9 +1,16 @@
 package herokuapp_smoketest;
 
 import base_urls.HerOkuAppBaseUrl;
+import io.restassured.response.Response;
 import org.junit.Test;
+import utils.ObjectMapperUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static herokuapp_smoketest.C01_PostRequest.bookingId;
+import static io.restassured.RestAssured.given;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class C04_PatchRequest extends HerOkuAppBaseUrl {
     /*
@@ -37,6 +44,24 @@ public class C04_PatchRequest extends HerOkuAppBaseUrl {
     public void patch01() {
         //set the url
         spec.pathParams("first", "booking", "second", bookingId);
+
+        //set the expected data
+        Map<String, Object> expectedData= new HashMap<>();
+        expectedData.put("additionalneeds", "Ankara Simidi" );
+
+        //Send the request and get the response
+       Response response= given(spec).body(expectedData).patch("{first}/{second}");
+       response.prettyPrint();
+
+       //do assertion
+        Map<String,Object> actualData= ObjectMapperUtils.convertJsonToJava(response.asString(),Map.class);
+
+        assertEquals(200, response.statusCode());
+        assertEquals(expectedData.get("additionalneeds"), actualData.get("additionalneeds"));
+
+
+
+
 
 
 
