@@ -1,16 +1,19 @@
 package pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
-public class CountryPojo {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Country {
 
     private String name;
     private List<StatePojo> states;
 
-    public CountryPojo() {
+    public Country() {
     }
 
-    public CountryPojo(String name, List<StatePojo> states) {
+    public Country(String name, List<StatePojo> states) {
         this.name = name;
         this.states = states;
     }

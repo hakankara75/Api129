@@ -12,14 +12,14 @@ public class GmiBank_Authentication {
      * @return type string dir.
      */
     public static String generateToken(){
-      String bodyMap = "{ \"username\" : \"admin\", \"password\" : \"password123\" }";
-        //   Map<String, String> bodyMap= new HashMap<>();  //istersek bu da calisir String yerine
+
+//   Map<String, String> bodyMap= new HashMap<>();  //istersek bu da calisir String yerine
 //     bodyMap.put("username", "admin" );
 //     bodyMap.put("password", "password123" );
-
+        String bodyMap = "{ \"username\" : \"mark_twain\", \"password\" : \"Mark.123\" }";
        Response response= given().contentType(ContentType.JSON).body(bodyMap).post("https://gmibank.com/api/authenticate");
 
-       return response.jsonPath().getString("token");
+       return response.jsonPath().getString("id_token");
 
     }
 
