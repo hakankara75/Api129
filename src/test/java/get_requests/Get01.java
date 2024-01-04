@@ -30,12 +30,13 @@ public class Get01 {
         Response response=given().get(url);
         response.prettyPrint();
 
-//4-       Do assertion
+//4-       Do assertion (then metodu ile yapma)
         response.then() //then() methodu ile response'ı doğrula
                 .statusCode(200) //HTTP Status Code should be 200
-                .contentType("application/json") //Content Type should be "application/json"
+                .contentType("application/json; charset=utf-8") //Content Type should be "application/json"
                 .statusLine("HTTP/1.1 200 OK"); //Status Line should be "HTTP/1.1 200 OK"
 
+        //5- Burada doğrulananlar metadata (header) daki datalardir. postman de header dan bakılabilir
 
 
 
