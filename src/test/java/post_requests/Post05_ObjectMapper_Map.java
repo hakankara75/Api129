@@ -1,7 +1,6 @@
 package post_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
-import base_urls.ReqresBaseUrl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
@@ -45,7 +44,9 @@ public class Post05_ObjectMapper_Map extends JsonPlaceHolderBaseUrl {
 
     //set the expected data
         Map<String , Object> expectedData = new JsonPlaceHolderTestData().expectedDataMap(55, "Tidy your room", false);
+        Map<String , Object> expectedData2 = new JsonPlaceHolderTestData().expectedDataMap(3434, "Tidy your room4334", false);
         System.out.println("expectedData = " + expectedData);
+
 
         //send the request and get the response
         Response response = given(spec).body(expectedData).post("{first}");
